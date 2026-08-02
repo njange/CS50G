@@ -1,4 +1,5 @@
 push = require 'push'
+
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
 
@@ -16,7 +17,8 @@ local BACKGROUND_LOOPING_POINT = 413
 function love.load()
     love.graphics.setDefaultFilter('nearest', 'nearest')
 
-    background = lova.graphics.newImage('background.png')
+    background = love.graphics.newImage('background.png')
+    
     ground = love.graphics.newImage('ground.png')
 
     love.window.setTitle('Flappy Bird')
