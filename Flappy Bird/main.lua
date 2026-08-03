@@ -1,4 +1,6 @@
 push = require 'push'
+Class = require 'class'
+require 'Bird'
 
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
@@ -20,6 +22,7 @@ function love.load()
     background = love.graphics.newImage('background.png')
     
     ground = love.graphics.newImage('ground.png')
+    bird = Bird()
 
     love.window.setTitle('Flappy Bird')
 
@@ -29,11 +32,7 @@ function love.load()
         resizable = true
     })
 
-    push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, { upscale = 'normal' })
-end
-
-function love.resize(w, h)
-    push:resize(w, h)
+    push.setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, { upscale = 'normal' })
 end
 
 function love.keypressed(key)
@@ -55,6 +54,7 @@ function love.draw()
     love.graphics.draw(background, -backgroundScroll, 0)
 
     love.graphics.draw(ground, -groundScroll, VIRTUAL_HEIGHT - 16)
+    bird:render()
 
     push.finish()
 end
