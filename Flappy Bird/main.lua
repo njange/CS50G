@@ -7,7 +7,7 @@ require 'PipePair'
 
 require 'StateMachine'
 require 'states/BaseState'
-require 'states/CountDownState'
+require 'states/CountdownState'
 require 'states/PlayState'
 require 'states/ScoreState'
 require 'states/TitleScreenState'
@@ -64,7 +64,7 @@ function love.load()
 
   gStateMachine = StateMachine {
     ['title'] = function() return TitleScreenState() end,
-    ['countdown'] = function() return CountDownState() end,
+    ['countdown'] = function() return CountdownState() end,
     ['play'] = function() return PlayState() end,
     ['score'] = function() return ScoreState() end,
   }
